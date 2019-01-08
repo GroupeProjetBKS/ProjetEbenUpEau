@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">CreationPostEbenup</string>
+    <string name="title_activity_register">RegisterActivity</string>
+
+    <string name="register">S\'inscrire</string>
+    <string name="login">Se connecter</string>
+
+    <string name="pseudo">pseudo</string>
+    <string name="email">email</string>
+    <string name="password">mot de passe</string>
+    <string name="password2">Confirmer mot de passe</string>
+    <string name="register_title">Inscription</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="login_title">Connexion</string>
+    <string name="prenom">prenom</string>
+    <string name="adresse">adresse</string>
+    <string name="title_activity_premiere">PremiereActivity</string>
 </resources>

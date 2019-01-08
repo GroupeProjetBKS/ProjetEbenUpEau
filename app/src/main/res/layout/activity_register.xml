@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_title"
+            android:textSize="23sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="4dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_prenom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <EditText
+                android:id="@+id/et_prenom"
+                android:layout_width="277dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/prenom"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_adresse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <EditText
+                android:id="@+id/et_adresse"
+                android:layout_width="277dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/adresse"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_pseudo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <EditText
+                android:id="@+id/et_pseudo"
+                android:layout_width="277dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/pseudo"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout5">
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="274dp"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="261dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_password2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_password2"
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/password2"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/register" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+
+</android.support.constraint.ConstraintLayout>
