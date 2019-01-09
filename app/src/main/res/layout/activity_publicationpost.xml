@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PublicationPostActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:isScrollContainer="false"
+        android:orientation="vertical"
+        app:layout_constrainedHeight="false"
+        app:layout_constrainedWidth="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/pp"
+                android:layout_width="117dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgPP"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:srcCompat="@tools:sample/avatars[2]" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/txtUsername"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Identidiant" />
+
+            <Button
+                android:id="@+id/btnPublier"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Publier" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/imgConteneur"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/imgContent"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                tools:srcCompat="@tools:sample/avatars[3]" />
+        </LinearLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="444dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/txtTitre"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Titre"
+                android:inputType="text"
+                app:layout_constraintBottom_toTopOf="@+id/txtCommentaire"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/txtCommentaire"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/txtLevres"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Levres"
+                android:inputType="text"
+                app:layout_constraintBottom_toTopOf="@+id/txtTeint"
+                app:layout_constraintEnd_toStartOf="@+id/txtCommentaire"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSourcils" />
+
+            <EditText
+                android:id="@+id/txtTeint"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Teint"
+                android:inputType="text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/txtCommentaire"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtLevres" />
+
+            <EditText
+                android:id="@+id/txtSourcils"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Sourcils"
+                android:inputType="text"
+                app:layout_constraintBottom_toTopOf="@+id/txtLevres"
+                app:layout_constraintEnd_toStartOf="@+id/txtCommentaire"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtYeux" />
+
+            <EditText
+                android:id="@+id/txtYeux"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Yeux"
+                android:inputType="text"
+                app:layout_constraintBottom_toTopOf="@+id/txtSourcils"
+                app:layout_constraintEnd_toStartOf="@+id/txtCommentaire"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtCoif" />
+
+            <EditText
+                android:id="@+id/txtCoif"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Coiffeur"
+                android:inputType="text"
+                app:layout_constraintBottom_toTopOf="@+id/txtYeux"
+                app:layout_constraintEnd_toStartOf="@+id/txtCommentaire"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/txtCommentaire"
+                android:layout_width="wrap_content"
+                android:layout_height="164dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="8dp"
+                android:hint="Description du post"
+                android:inputType="text"
+                android:textAllCaps="false"
+                android:textIsSelectable="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtLevres"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:textSize="30sp" />
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
