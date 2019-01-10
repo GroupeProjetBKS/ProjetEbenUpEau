@@ -77,7 +77,7 @@
             android:id="@+id/til_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout5">
+            app:layout_constraintStart_toStartOf="@+id/til_pseudo">
 
             <EditText
                 android:id="@+id/et_email"

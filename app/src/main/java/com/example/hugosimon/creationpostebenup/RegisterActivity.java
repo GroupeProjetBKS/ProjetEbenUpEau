@@ -4,15 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
-import com.example.hugosimon.creationpostebenup.MainActivity;
 import com.example.hugosimon.creationpostebenup.MyRequest.MyRequest;
-import com.example.hugosimon.creationpostebenup.R;
-import com.example.hugosimon.creationpostebenup.VolleySingleton;
 
 import java.util.Map;
 
@@ -97,6 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 @Override
                                 public void onError (String message){
+                                    Log.d("ppppp", message + "*****");
                                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                                 }
                             });

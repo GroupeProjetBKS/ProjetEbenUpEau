@@ -6,6 +6,7 @@
     <string name="login">Se connecter</string>
 
     <string name="pseudo">pseudo</string>
+    <string name="loginbtn">se connecter</string>
     <string name="email">email</string>
     <string name="password">mot de passe</string>
     <string name="password2">Confirmer mot de passe</string>

@@ -39,7 +39,7 @@ public class AccesHTTP extends AsyncTask<String, Integer, Long>{
             paramcnx.setEntity(new UrlEncodedFormEntity(parametres));
             HttpResponse reponse = cnxHttp.execute(paramcnx);
             ret = EntityUtils.toString(reponse.getEntity());
-            Log.d("puteputepute",ret + "*****ttt");
+            Log.d("testtesttest",ret + "*****ttt");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (ClientProtocolException e) {

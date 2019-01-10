@@ -14,7 +14,7 @@ import com.example.hugosimon.creationpostebenup.MyRequest.MyRequest;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Button btn_send;
+    private Button btn_login;
     private TextInputLayout til_pseudo, til_password;
     private RequestQueue queue;
     private MyRequest request;
@@ -25,14 +25,14 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);  // permet d'acceder a la page activity_login
 
 
-        btn_send = findViewById(R.id.btn_send);
+        btn_login = findViewById(R.id.btn_login);
 
         til_pseudo = findViewById(R.id.til_pseudo);
         til_password = findViewById(R.id.til_password);
 
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
-        btn_send.setOnClickListener(new View.OnClickListener() {
+        btn_login.setOnClickListener(new View.OnClickListener() {
 
 
 
