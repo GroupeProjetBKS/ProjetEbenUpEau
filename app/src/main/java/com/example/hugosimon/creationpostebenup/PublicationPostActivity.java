@@ -25,32 +25,134 @@ import java.io.InputStream;
 
 //import com.ebenup.niru.ebenup.R;
 
+/**
+ *  Classe faisant office de vue pour la publication de post, elle va lire les entrées utilisateur pour les envoyer au controleur,
+ *  celui ci verifiera si le post est valide et si oui enverra une demande de publication à la bdd
+ *  @author Hugo SIMON
+ */
+
 public class PublicationPostActivity extends AppCompatActivity {
-    private long id;
+
+    /**
+     * variable qui va stocker la photo selectionnee par l'utilisateur
+     */
+
     private File content;
-    private String posterName;
-    private int nbLikes;
+
+    /**
+     *  id de la requete envoyee lorsque l'utilisateur clique sur l'image pour en changer
+     */
+
     public static final int REQUEST_FILE = 1;
+
+    /**
+     *  nombre de donnees au format texte qui seront envoyees
+     */
+
     private final int nbData = 10;
+
+    /**
+     *  chemin du fichier selectionne par l'utilisateur
+     */
+
     private String contentPath;
 
-    public File getContent() {
-        return content;
-    }
+    /**
+     *  Reference sur le nom de l'utilisateur
+     */
 
-    public int getNbLikes() {
-        return nbLikes;
-    }
+    private TextView txtUsername;
+
+    /**
+     *  reference sur la zone de saisie de la description
+     */
+
+    private EditText txtDesc;
+
+    /**
+     *  Reference sur l'image qui sera sauvegardee en tant que contenu du post
+     */
+
+    private ImageView imgContent;
+
+    /**
+     *  reference sur la photo de profil de l'utilisateur courant
+     */
+
+    private ImageView imgPP;
+
+    /**
+     *  reference sur la zone de saisie correspondant au coiffeur
+     */
+
+    private EditText txtCoif;
+
+    /**
+     *  reference sur la zone de saisie correspondant au nom de la personne ayant fait les yeux
+     */
+
+    private EditText txtYeux;
+
+    /**
+     *  reference sur la zone de saisie correspondant au nom de la personne ayant fait les sourcils
+     */
+
+    private EditText txtSourcils;
+
+    /**
+     *  reference sur la zone de saisie correspondant au nom de la personne ayant fait les levres
+     */
+
+    private EditText txtLevres;
+
+    /**
+     *  reference sur la zone de saisie correspondant au nom de la personne ayant fait le teint
+     */
+
+    private EditText txtTeint;
+
+    /**
+     *  reference sur le bouton qui permettra de publier le post
+     */
+
+    private Button btnPublier;
+
+    /**
+     *  reference sur la zone de saisie correspondant au titre du post
+     */
+
+    private EditText txtTitre;
+
+    /**
+     *  Instance du controleur permettant la publication de post
+     */
+
+    private Controller_enregistrementPost ctrl = Controller_enregistrementPost.getInstance();
+
+    /**
+     *  methode qui sera executee lorsque l'utilisateur aura choisi une image
+     *  @param requestCode code indiquant quelle activitee est choisie
+     *  @param resultCode  code envoye permettant de definir si c'est une erreur ou un succes
+     *  @param data donnees transmises
+     */
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_FILE) {
             if (resultCode == RESULT_OK) {
+
+                //recup le chemin de l'image
                 Uri imageUri = data.getData();
                 InputStream inputStream;
+
+                //si image valide
                 if(ctrl.accept(new File(getRealPathFromURI(imageUri)))){
+
+                    //la sauvegarder ainsi que son chemin
                     content = new File(getRealPathFromURI(imageUri));
                     contentPath = getRealPathFromURI(imageUri);
                     try {
+
+                        //met l'image au mileu
                         inputStream = getContentResolver().openInputStream(imageUri);
                         Bitmap bm = BitmapFactory.decodeStream(inputStream);
                         imgContent.setImageBitmap(bm);
@@ -64,6 +166,12 @@ public class PublicationPostActivity extends AppCompatActivity {
             }
         }
     }
+
+    /**
+     * methode pour recuperer le chemin de l'image
+     * @param contentURI chemin "virtuel" de l'image
+     * @return le chemin sous forme de chaine
+     */
 
     private String getRealPathFromURI(Uri contentURI) {
         String result;
@@ -79,24 +187,22 @@ public class PublicationPostActivity extends AppCompatActivity {
         return result;
     }
 
+    /**
+     * Methode appellee au chargement de l'activitee
+     * @param savedInstanceState parametre de base pour le demarage d'une activitee
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publicationpost);
         this.init();
     }
-    private TextView txtUsername;
-    private EditText txtDesc;
-    private ImageView imgContent;
-    private ImageView imgPP;
-    private EditText txtCoif;
-    private EditText txtYeux;
-    private EditText txtSourcils;
-    private EditText txtLevres;
-    private EditText txtTeint;
-    private Button btnPublier;
-    private EditText txtTitre;
-    private Controller_enregistrementPost ctrl = Controller_enregistrementPost.getInstance();
+
+    /**
+     *  initialise chaqu'une des variables d'instance et applique un ontouchlistener sur l'image
+     */
+
     private void init(){
         txtUsername = (TextView)findViewById(R.id.txtUsername);
         txtDesc = (EditText)findViewById(R.id.txtCommentaire);
@@ -109,8 +215,8 @@ public class PublicationPostActivity extends AppCompatActivity {
         txtLevres = (EditText)findViewById(R.id.txtLevres);
         txtTeint = (EditText) findViewById(R.id.txtTeint);
         imgContent.setImageResource(R.drawable.sample_background);
-        //setPP();
         ecoutePublier();
+        imgPP.setImageResource(R.drawable.pp_vide);
         imgContent.setOnTouchListener(new View.OnTouchListener() {
 
             public boolean onTouch(View arg0, MotionEvent arg1) {
@@ -128,17 +234,13 @@ public class PublicationPostActivity extends AppCompatActivity {
                 return true;
             }
         });
-
     }
 
-    /*private void setPP(){
-        if(){
+    /**
+     *  methode qui va reagir lorsque l'utilisateur appuiera sur le bouton publier, elle va
+     *  premierement recuperer les informations saisies par l'utilisateur et demande au controleur de publier le post
+     */
 
-        }
-        else{
-            imgPP.setImageResource(R.drawable.pp_vide);
-        }
-    }*/
     private void ecoutePublier(){
         btnPublier = (Button) findViewById(R.id.btnPublier);
         btnPublier.setOnClickListener(new Button.OnClickListener(){
@@ -171,5 +273,4 @@ public class PublicationPostActivity extends AppCompatActivity {
             }
         });
     }
-
 }

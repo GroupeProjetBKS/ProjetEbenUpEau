@@ -52,20 +52,20 @@ public class RegisterActivity extends AppCompatActivity {
                 String password = til_password.getEditText().getText().toString().trim();
                 String password2 = til_password2.getEditText().getText().toString().trim();
 
-
                 if (prenom.length() > 0 && adresse.length()>0 && pseudo.length()>0 && email.length()> 0 && password.length()>0 && password2.length()>0) {
+                    Log.d("pjgfnfjfpp",  "167*");
                     request.register(prenom, adresse, pseudo, email, password, password2, new MyRequest.RegisterCallback() {
                         @Override
                         public void onSuccess(String message) {
-                            Intent intent = new Intent (getApplicationContext(), MainActivity.class);
-                            intent.putExtra("REGISTER", message);
+                            Log.d("pjgfnfjfpp",  "1234567*");
+                            Intent intent = new Intent (getApplicationContext(), com.example.hugosimon.creationpostebenup.PublicationPostActivity.class);
                             startActivity(intent);
-                            finish();
+
                         }
 
                         @Override
                         public void inputErrors(Map<String, String> errors) {
-
+                            Log.d("pjgfnfjfpp",  "16789*");
                             if (errors.get("prenom") != null) {
                                 til_prenom.setError(errors.get("prenom"));
                             } else {
@@ -95,13 +95,14 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 @Override
                                 public void onError (String message){
-                                    Log.d("ppppp", message + "*****");
+                                    Log.d("ppppp", message + "bonjour**");
                                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }else
 
                         {
+                            Log.d("pjgfnfjfpp",  "1467*");
                             Toast.makeText(getApplicationContext(), "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
                         }
                     }

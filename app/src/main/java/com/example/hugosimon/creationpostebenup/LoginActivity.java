@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (pseudo.length() > 0 && password.length()>0) {
 
-                    request.login(pseudo, password, new MyRequest.LoginCallback() {
+                    request.login(pseudo, password, new MyRequest.LoginCallback()  {
                         @Override
                         public void onSuccess(String id, String pseudo) {
                             Intent intent = new Intent(getApplicationContext(),PremiereActivity.class);

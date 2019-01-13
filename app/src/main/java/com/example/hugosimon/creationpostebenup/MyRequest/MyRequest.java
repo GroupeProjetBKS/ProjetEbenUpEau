@@ -41,10 +41,15 @@ public class MyRequest {
                 Map<String, String> errors = new HashMap<>();
 
                 try {
+                    Log.d("pjgfnfjfpp",  "1*");
                     JSONObject json = new JSONObject(response);
-                    Boolean error = json.getBoolean("error");
+                    Log.d("pjgfnfjfpp",  "129*");
+
+                    Boolean error = json.getBoolean("errors");
+                    Log.d("pjgfnfjfpp",  "1666*");
 
                     if (!error){
+
                         callback.onSuccess("Vous êtes bien inscrit");
 
                     }else{
@@ -69,9 +74,9 @@ public class MyRequest {
 
 
                 }catch (JSONException e){
+
                     e.printStackTrace();
                 }
-
 
 
 
@@ -123,9 +128,10 @@ public class MyRequest {
             @Override
             public void onResponse(String response) {
                 Log.d("raiponss", response + "*****");
-                JSONObject json = null ;
+                Map<String, String> errors = new HashMap<>();
+
                 try {
-                    json = new JSONObject(response);
+                    JSONObject json = new JSONObject(response);
                     Boolean error = json.getBoolean("error");
 
                     if (!error){
@@ -141,8 +147,6 @@ public class MyRequest {
                     callback.onError("Une erreur s'est produite");
                     e.printStackTrace();
                 }
-
-
 
 
             }
@@ -180,5 +184,6 @@ public class MyRequest {
         public interface LoginCallback {
             void onSuccess(String id, String message);
             void onError(String message);
+
         }
 }
